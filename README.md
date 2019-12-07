@@ -9,13 +9,22 @@ Run `make` and programm will compile.
 Run it with `./ls-render maps/'map_name'`.
 
 ## Controls
-`ESC` - Close the program.  
-`W`/`A`/`S`/`D` - Move map.
-`Q`/`E` - Spin map.
+`ESC` - Close the program.
+
+`W`/`A`/`S`/`D` - Move the map.
+
+`Q`/`E` - Spin the map.
+
 `R`/`T` - Start/Stop auto spin.
+
 `J` + `auto spin (R)` - Nice moving.
-`hold LMB` - Map will follow mouse cursor.
-`mouse wheel` - Zoom.
+
+`Hold LMB` - Map will follow mouse cursor.
+
+`Mouse wheel` - Zoom.
+
 `CTRL` + `mouse wheel` - Height.
+
 `L` - Switch mode.
-`O` - small optimization for Breshenham mode.
+
+`O` - Small optimization for Breshenham mode.
