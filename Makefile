@@ -33,7 +33,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
-	gcc -g $(WFLAGS) $(INC) -o $@ -c $<
+	$(CC) $(WFLAGS) $(INC) -o $@ -c $<
 
 make_libs:
 	@make -C ./libft
