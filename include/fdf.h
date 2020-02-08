@@ -13,7 +13,7 @@
 #ifndef FDF_H
 # define FDF_H
 
-# include <mlx.h>
+# include "mlx.h"
 # include <fcntl.h>
 # include <math.h>
 # include "libft.h"
