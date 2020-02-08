@@ -17,6 +17,9 @@
 # include <string.h>
 # include <unistd.h>
 
+# define HASH_P		31
+# define HASH_M		1000000009
+
 typedef struct		s_list
 {
 	void			*content;
@@ -104,5 +107,6 @@ void				ft_dswap(double *a, double *b);
 void				ft_fswap(float *a, float *b);
 int					ft_atoi_base(const char *str, int str_base);
 int					get_next_line(const int fd, char **line);
+int					ft_strhash(const char *str);
 
 #endif

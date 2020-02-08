@@ -12,13 +12,33 @@
 
 #include "fdf.h"
 
-void	initialization(t_picture *map)
+static void	jtoc_exit_with_error(const char *error)
+{
+	printf("%s\n", error);
+	exit(0);
+}
+
+static void	jtoc_map_setup(t_picture *map, const char *path)
+{
+	t_jnode *root;
+	t_jnode *tmp;
+
+	if (!(root = jtoc_read(path)))
+		jtoc_exit_with_error("PATH ERROR");
+	if (!(tmp = jtoc_node_get_by_path(root, "window_width")) || tmp->type != integer)
+		jtoc_exit_with_error("WINDOW_WIDTH ERROR");
+	map->s_width = jtoc_get_int(tmp);
+	if (!(tmp = jtoc_node_get_by_path(root, "window_height")) || tmp->type != integer)
+		jtoc_exit_with_error("WINDOW_HEIGHT ERROR");
+	map->s_height = jtoc_get_int(tmp);
+	jtoc_node_clear(root);
+}
+
+void		initialization(t_picture *map)
 {
 	map->angle_z = 0.5;
 	map->angle_x = 2.1;
 	map->zoom = 10;
-	map->s_width = 2400;
-	map->s_height = 1200;
 	map->center_x = map->s_width / 2;
 	map->center_y = map->s_height / 2;
 	map->button_flag = 0;
@@ -31,9 +51,10 @@ void	initialization(t_picture *map)
 	map->up_height = 1;
 	map->control_flag = 0;
 	map->optimize_flag = 1;
+	jtoc_map_setup(map, CONFIG_PATH);
 }
 
-void	check_angle_flag(t_picture *map)
+void			check_angle_flag(t_picture *map)
 {
 	if (map->button_flag == 0 && map->spin_z == 1)
 		map->angle_z -= 0.01;
@@ -41,7 +62,7 @@ void	check_angle_flag(t_picture *map)
 		map->angle_x += 0.01;
 }
 
-void	ft_ucswap(unsigned char *a, unsigned char *b)
+void		ft_ucswap(unsigned char *a, unsigned char *b)
 {
 	unsigned char	tmp;
 

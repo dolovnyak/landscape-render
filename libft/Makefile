@@ -78,7 +78,9 @@ SRC = ft_atoi.c \
 	  ft_swap.c \
 	  ft_dswap.c \
 	  ft_fswap.c \
-	  ft_atoi_base.c
+	  ft_atoi_base.c \
+	  ft_strhash.c
+
 OBJ=$(SRC:.c=.o)
 %.c : %.o
 

@@ -17,6 +17,9 @@
 # include <fcntl.h>
 # include <math.h>
 # include "libft.h"
+# include "libjtoc.h"
+
+# define CONFIG_PATH "./config.json"
 
 typedef struct		s_arr_struct
 {

@@ -1,35 +1,37 @@
 NAME		=		ls-render
 
-CC		=		gcc -O3
+CC			=		gcc -O3
 
 WFLAGS		=		-Wall -Werror -Wextra
 
-SRC		=		bresenham_line.c \
-				check_line.c \
-				help_functions.c \
-				help_functions_for_draw_line.c \
-				events1.c \
-				events2.c \
-				wu_line.c \
-				input.c \
-				fdf.c
+SRC			=		bresenham_line.c \
+					check_line.c \
+					help_functions.c \
+					help_functions_for_draw_line.c \
+					events1.c \
+					events2.c \
+					wu_line.c \
+					input.c \
+					fdf.c
 
 SRC_DIR		=		./src
 
-OBJ		=		$(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
+OBJ			=		$(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
 OBJ_DIR		=		./obj
 
-INC		=		-I ./include -I ./libft -I ./minilibx_macos
+INC			=		-I ./include -I ./libft -I ./libjtoc/include -I ./minilibx_macos
 
 LIBFT		=		-L ./libft -lft
 
-MLX		=		-L ./minilibx_macos -lmlx -framework OpenGL -framework AppKit
+LIBJTOC		=		-L ./libjtoc -ljtoc
+
+MLX			=		-L ./minilibx_macos -lmlx -framework OpenGL -framework AppKit
 
 all: make_libs $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(WFLAGS) $(OBJ) $(LIBFT) $(MLX) -o $(NAME)
+	$(CC) $(WFLAGS) $(OBJ) $(LIBFT) $(LIBJTOC) $(MLX) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
@@ -37,16 +39,19 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 make_libs:
 	@make -C ./libft
+	@make -C ./libjtoc
 	@make -C ./minilibx_macos
 
 clean:
 	/bin/rm -rf ./obj
 	make -C ./libft/ clean
+	make -C ./libjtoc clean
 	make -C ./minilibx_macos/ clean
 
 fclean: clean
 	/bin/rm -f $(NAME)
 	make -C ./libft/ fclean
+	make -C ./libjtoc fclean
 	make -C ./minilibx_macos/ clean
 
 re: fclean all
