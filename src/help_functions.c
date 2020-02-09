@@ -36,6 +36,7 @@ static void	jtoc_map_setup(t_picture *map, const char *path)
 
 void		initialization(t_picture *map)
 {
+	jtoc_map_setup(map, CONFIG_PATH);
 	map->angle_z = 0.5;
 	map->angle_x = 2.1;
 	map->zoom = 10;
@@ -51,7 +52,6 @@ void		initialization(t_picture *map)
 	map->up_height = 1;
 	map->control_flag = 0;
 	map->optimize_flag = 1;
-	jtoc_map_setup(map, CONFIG_PATH);
 }
 
 void			check_angle_flag(t_picture *map)
