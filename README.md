@@ -7,7 +7,7 @@ Build on `MacOS`
 --------
 ```
 make
-./ls-render maps/'map_name'`.
+./ls-render maps/'map_name'
 ```
 
 ## Controls
