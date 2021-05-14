@@ -3,10 +3,12 @@
 ![Image alt](https://github.com/dolovnyak/landscape-render/blob/master/screenshots/Screen%20Shot%202019-12-07%20at%2020.34.22.png)
 ![Image alt](https://github.com/dolovnyak/landscape-render/blob/master/screenshots/Screen%20Shot%202019-12-07%20at%2020.39.37.png)
 
-## Compiling and running
-Runs on **OSX**.  
-Run `make` and programm will compile.  
-Run it with `./ls-render maps/'map_name'`.
+Build on `MacOS`
+--------
+```
+make
+./ls-render maps/'map_name'`.
+```
 
 ## Controls
 `ESC` - Close the program.
