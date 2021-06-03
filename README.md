@@ -27,7 +27,7 @@ Implimented:
 - Wu's line
 - Maps parsing
 
-Build on `MacOS`
+Build and run on `MacOS`
 --------
 ```
 make
