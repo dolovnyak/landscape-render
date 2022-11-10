@@ -1,6 +1,6 @@
 # landscape-render
 
-## MacOS - [![Build Status](https://www.travis-ci.com/dolovnyak/landscape-render.svg?branch=master)](https://www.travis-ci.com/dolovnyak/landscape-render)
+## MacOS - ![Build](https://github.com/dolovnyak/landscape-render/actions/workflows/build.yml/badge.svg?branch=master)
 
 This program renders the landscape in the format below:
 ---------
